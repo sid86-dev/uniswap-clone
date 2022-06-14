@@ -28,7 +28,6 @@ export const TransactionHistory: React.FC = () => {
     const { isLoading, currentAccount } = useContext(TransactionContext);
     const [transactionHistory, setTransactionHistory] = useState<Transaction[]>([])
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log(timezone)
 
     useEffect(() => {
         ; (async () => {
@@ -42,7 +41,7 @@ export const TransactionHistory: React.FC = () => {
 
                 const clientRes = await client.fetch(query);
 
-                setTransactionHistory(clientRes[0].transactionList?.slice(0, -1))
+                setTransactionHistory(clientRes[0]?.transactionList?.slice(-4))
 
             }
         })()
