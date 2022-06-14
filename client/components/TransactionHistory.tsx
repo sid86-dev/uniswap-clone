@@ -27,7 +27,8 @@ export const TransactionHistory: React.FC = () => {
 
     const { isLoading, currentAccount } = useContext(TransactionContext);
     const [transactionHistory, setTransactionHistory] = useState<Transaction[]>([])
-
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log(timezone)
 
     useEffect(() => {
         ; (async () => {
@@ -64,7 +65,7 @@ export const TransactionHistory: React.FC = () => {
                         </div>{' '}
                         on{' '}<div className={style.txTimestamp}>
                             {new Date(transaction.timestamp).toLocaleString('en-US', {
-                                timeZone: 'PST',
+                                timeZone: timezone,
                                 hour12: true,
                                 timeStyle: 'short',
                                 dateStyle: 'long',
