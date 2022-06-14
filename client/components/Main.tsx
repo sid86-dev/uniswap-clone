@@ -4,7 +4,6 @@ import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
 import ethLogo from '../assets/eth.png'
 import { ChangeEvent, useContext } from 'react'
-import { useRouter } from 'next/router'
 
 
 const style = {
