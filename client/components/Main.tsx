@@ -1,10 +1,14 @@
+import Modal from 'react-modal';
 import Image from 'next/image'
 import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
 import ethLogo from '../assets/eth.png'
 import React, { useContext } from 'react'
 import { TransactionContext } from '../context/TransactionContext'
+import { useRouter } from 'next/router';
+import TransactionLoader from './TransactionLoader';
 
+Modal.setAppElement('#__next')
 
 const style = {
     wrapper: `w-screen flex items-center justify-center mt-14`,
@@ -37,6 +41,8 @@ const customStyles = {
 }
 
 export const Main: React.FC = () => {
+    const router = useRouter();
+
     const { formData, handleChange, sendTransaction, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -92,7 +98,9 @@ export const Main: React.FC = () => {
                     Confirm
                 </div>
             </div>
-
+            <Modal isOpen={!!router.query.loading} style={customStyles}>
+                <TransactionLoader />
+            </Modal>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { contractABI, contractAddress } from '../lib/constants'
 import { ethers } from 'ethers'
 import { client } from '../lib/sanityClient'
+import { useRouter } from "next/router";
 
 export const TransactionContext = React.createContext()
 
@@ -31,7 +32,7 @@ export const TransactionProvider = ({ children }) => {
         addressTo: '',
         amount: ''
     });
-
+    const router = useRouter()
 
     useEffect(() => {
         checkIfWallterIsConnected()
@@ -64,6 +65,7 @@ export const TransactionProvider = ({ children }) => {
             throw new Error('No ethereum object.')
         }
     }
+
 
     const checkIfWallterIsConnected = async (metamask = eth) => {
         try {
@@ -177,6 +179,15 @@ export const TransactionProvider = ({ children }) => {
         return
     };
 
+    // Triger Loading Model
+    useEffect(() => {
+        if (isLoading) {
+            router.push(`/?loading=${currentAccount}`)
+        }
+        else {
+            router.push('/')
+        }
+    }, [isLoading])
 
     return (
         <TransactionContext.Provider

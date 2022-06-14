@@ -41,7 +41,7 @@ export const TransactionHistory: React.FC = () => {
 
                 const clientRes = await client.fetch(query);
 
-                setTransactionHistory(clientRes[0]?.transactionList?.slice(-4))
+                setTransactionHistory(clientRes[0]?.transactionList?.slice(0, 4))
 
             }
         })()

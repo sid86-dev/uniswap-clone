@@ -13,6 +13,7 @@ const Home: NextPage = () => {
     <div className={style.wrapper}>
       <Head>
         <title>Uniswap Clone</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Header />
       <Main />
