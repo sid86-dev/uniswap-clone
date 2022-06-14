@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/client": "^3.3.2",
     "ethers": "^5.6.8",
     "next": "latest",
     "react": "18.1.0",
