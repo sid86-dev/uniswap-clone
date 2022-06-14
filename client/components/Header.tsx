@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi'
 import { AiOutlineDown } from 'react-icons/ai'
@@ -67,7 +67,7 @@ const Header = () => {
                     </div>
                 </div>
                 {currentAccount ? <div className={`${style.button} ${style.buttonPadding}`}>
-                    <div className={`${style.buttonTextContainer}`}>{currentAccount.slice(0, 4) + `...` + currentAccount.slice(-6)}</div>
+                    <div className={`${style.buttonTextContainer}`}>{currentAccount.slice(0, 7) + `...` + currentAccount.slice(35)}</div>
                 </div> :
                     <div
                         onClick={() => connectWallet()}

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "ethers": "^5.6.8",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",

@@ -1,9 +1,9 @@
-import React from 'react'
 import Image from 'next/image'
 import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
 import ethLogo from '../assets/eth.png'
-import { ChangeEvent, useContext } from 'react'
+import React, { useContext } from 'react'
+import { TransactionContext } from '../context/TransactionContext'
 
 
 const style = {
@@ -37,13 +37,17 @@ const customStyles = {
 }
 
 export const Main: React.FC = () => {
+    const { formData, handleChange, sendTransaction } = useContext(TransactionContext);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>, type: string) => {
-
-    }
     const handleSubmit = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        const { addressTo, amount } = formData;
+        e.preventDefault()
 
-    }
+        if (!addressTo || !amount) return
+
+        sendTransaction()
+    };
+
     return (
         <div className={style.wrapper}>
             <div className={style.content}>
