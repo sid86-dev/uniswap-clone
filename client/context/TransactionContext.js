@@ -113,6 +113,11 @@ export const TransactionProvider = ({ children }) => {
 
             setIsLoading(true);
 
+            setFormData({
+                addressTo: '',
+                amount: ''
+            })
+
             await transactionHash.wait()
 
             // db
@@ -167,6 +172,8 @@ export const TransactionProvider = ({ children }) => {
             ])
             .commit()
 
+
+
         return
     };
 
@@ -178,7 +185,8 @@ export const TransactionProvider = ({ children }) => {
                 connectWallet,
                 sendTransaction,
                 handleChange,
-                formData
+                formData,
+                isLoading
             }
             }>
             {children}
