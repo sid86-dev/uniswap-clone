@@ -22,5 +22,5 @@ Smart Contract | Hardhat Solidity dev environment
 
 
 <p align="center">
-<img  src="https://github.com/sid86-dev/uniswap-clone/blob/master/client/assets/uniswap.png" width="100px" /> 
+<img  src="https://github.com/sid86-dev/uniswap-clone/blob/master/client/assets/uniswap.png" width="101px" /> 
   </p>
